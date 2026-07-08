@@ -6,6 +6,14 @@ Allows systems to react to events without depending directly on one another.
 
 Player does not know about UI, Audio, Quest System, etc.
 
+Duplicate subscriptions are allowed.
+
+Reason:
+The EventBus uses multicast delegates, and multicast delegates naturally allow the same handler to be added multiple times.
+
+Trade-off:
+This keeps the EventBus simple, but callers must manage subscription lifecycle carefully. If a handler subscribes twice and unsubscribes once, it will still be subscribed once.
+
 
 IEvent
 ------
@@ -76,3 +84,26 @@ Sealed
 --------
 This is an indication of a complete implementation. It cannot be inherited from. If a different behavior is desired, then a different class is needed.
 
+
+Engineering Heuristics
+----------------------
+Heuristic #1
+
+Prefer code that communicates intent over code that is merely shorter.
+
+Heuristic #2
+
+Optimize for readability, because code is read far more often than it is written.
+
+Heuristic #3
+
+Design APIs that are forgiving of common mistakes when it doesn't hide bugs.
+
+Example:
+
+Publishing with no listeners is okay.
+Unsubscribing a non-existent handler is okay.
+But subscribing the same handler twice? That's a deliberate design decision we should understand.
+Heuristic #4
+
+Depend on capabilities (IEventBus), not implementations (EventBus), when it meaningfully reduces coupling.
