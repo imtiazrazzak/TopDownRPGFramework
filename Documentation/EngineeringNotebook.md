@@ -87,15 +87,15 @@ This is an indication of a complete implementation. It cannot be inherited from.
 
 Engineering Heuristics
 ----------------------
-Heuristic #1
+-Heuristic #1
 
 Prefer code that communicates intent over code that is merely shorter.
 
-Heuristic #2
+-Heuristic #2
 
 Optimize for readability, because code is read far more often than it is written.
 
-Heuristic #3
+-Heuristic #3
 
 Design APIs that are forgiving of common mistakes when it doesn't hide bugs.
 
@@ -104,6 +104,89 @@ Example:
 Publishing with no listeners is okay.
 Unsubscribing a non-existent handler is okay.
 But subscribing the same handler twice? That's a deliberate design decision we should understand.
-Heuristic #4
+
+-Heuristic #4
 
 Depend on capabilities (IEventBus), not implementations (EventBus), when it meaningfully reduces coupling.
+
+-Heuristic #5
+
+During development, prefer loud failures over silent failures.
+
+Why?
+
+Because developers fix bugs they can see.
+
+-Heuristic #6
+
+When deciding between a class and a struct, don't start with:
+
+"Stack or heap?"
+
+Start with:
+
+"Does this represent identity, or does it represent a value?"
+
+-Heuristic #7
+
+Use the compiler as a teammate.
+
+Teach the compiler your intentions.
+
+Then let it catch mistakes for you.
+
+That's exactly what these:
+
+readonly
+sealed
+interfaces
+generic constraints
+
+-Heuristic #8
+
+Events are historical facts, not windows into live objects.
+
+An event should answer:
+
+"What happened?"
+
+Not:
+
+"Go ask somebody what happened."
+
+-Heuristic #9
+
+When designing a type, ask two separate questions:
+
+Does this represent an identity or a value?
+Should this value be allowed to change after it is created?
+
+-Heuristic #10
+
+Before creating a new type, ask these three questions:
+
+1. What am I modeling?
+
+A thing?
+
+Or a value?
+
+2. Does it have identity?
+
+Yes?
+
+Probably a class.
+
+No?
+
+Consider a struct.
+
+3. Should it ever change after it's created?
+
+Yes?
+
+Mutable.
+
+No?
+
+readonly.
