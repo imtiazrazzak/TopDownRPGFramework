@@ -72,4 +72,7 @@ Exceptions in handlers
 Recursive events
 Threading assumptions
 
+Sealed
+--------
+This is an indication of a complete implementation. It cannot be inherited from. If a different behavior is desired, then a different class is needed.
 
