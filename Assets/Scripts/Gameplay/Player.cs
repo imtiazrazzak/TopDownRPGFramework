@@ -17,7 +17,7 @@ namespace TopDownRPGFramework.Gameplay
                 throw new ArgumentOutOfRangeException(nameof(maxHealth), "Max health must be greater than zero");
 
             }
-            _eventBus = eventBus;
+            _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
             MaxHealth = maxHealth;
             CurrentHealth = maxHealth;
         }

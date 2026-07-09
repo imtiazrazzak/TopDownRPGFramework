@@ -218,3 +218,19 @@ Instead ask:
 "Where is T used?"
 
 Because that's what tells you why the generic exists.
+
+-Heuristic #15
+
+Avoid duplicating information the compiler already knows.
+
+-Heuristic #16
+
+Detect invalid state as early as possible.
+
+Or, another way of saying it:
+
+Don't allow broken objects to exist.
+
+-Heuristic #17
+
+A commit message should describe the intent of the change, not just the files that changed.
