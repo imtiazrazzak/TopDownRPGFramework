@@ -234,3 +234,9 @@ Don't allow broken objects to exist.
 -Heuristic #17
 
 A commit message should describe the intent of the change, not just the files that changed.
+
+-Heuristic #18
+
+Use named arguments when they make the call site significantly easier to understand.
+
+Example: _player = new Player(maxHealth: 100, eventBus: _eventBus);
