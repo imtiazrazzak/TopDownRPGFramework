@@ -190,3 +190,31 @@ Mutable.
 No?
 
 readonly.
+
+-Heuristic #11
+
+A good public API should tell a story before you read the implementation.
+
+-Heuristic #12
+
+Constructors should create valid objects.
+
+-Heuristic #13
+
+A class should describe what happened, not orchestrate every consequence.
+
+-Heuristic #14
+
+When you see a generic type like:
+
+<T>
+
+don't immediately ask:
+
+"What is T?"
+
+Instead ask:
+
+"Where is T used?"
+
+Because that's what tells you why the generic exists.
