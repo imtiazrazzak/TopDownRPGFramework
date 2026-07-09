@@ -1,0 +1,16 @@
+{
+    "name": "TopDownRPGFramework.Gameplay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ec8081d30139a074cb958b85b7dcf272"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
